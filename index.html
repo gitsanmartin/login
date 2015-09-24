@@ -1,0 +1,36 @@
+<!DOCTYPE HTML>
+<html ng:app="myApp">
+<head>
+	<meta charset="utf8"/>
+	<meta name="viewport" content="width=device-width,initial-scale=1">
+	<title>Probando cosas locas</title>
+
+	<link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css">
+	<link rel="stylesheet" href="style/style.css" />
+	<link rel="stylesheet" href="bower_components/AngularJS-Toaster/toaster.css">
+</head>
+
+<!-- <body> -->
+<body ng:cloak="">
+
+<div class="container">
+	<div data-ng-view="" ></div>
+</div>
+
+</body>
+	<toaster-container toaster-options="{'time-out': 3000}"></toaster-container>
+
+	<!-- Librerias -->
+	<script src="bower_components/angular/angular.js"></script>
+	<script src="bower_components/angular-route/angular-route.js"></script>
+	<script src="bower_components/angular-resource/angular-resource.js"></script>
+	<script src="bower_components/angular-animate/angular-animate.js"></script>
+	<script src="bower_components/AngularJS-Toaster/toaster.js"></script>
+
+	<!-- sistema -->
+	<script src="app/app.js"></script>
+	<script src="app/services.js"></script>
+	<script src="app/directives.js"></script>
+	<script src="app/controllers.js"></script>
+
+</html>
