@@ -3,14 +3,16 @@ $app->get('/session', function() {
     $db = new DbHandler();
     $session = $db->getSession();
     $response["uid"] = $session['uid'];
-    // $response["email"] = $session['email'];
+    $response["email"] = $session['email'];
     $response["name"] = $session['name'];
+    //info para llevar a al scope y luego a la vista
     echoResponse(200, $session);
 });
 
 $app->post('/login', function() use ($app) {
     require_once 'passwordHash.php';
     $r = json_decode($app->request->getBody());
+    //Validamos usuario y contraseña
     verifyRequiredParams(array('name', 'password'),$r->customer);
     $response = array();
     $db = new DbHandler();
@@ -24,7 +26,7 @@ $app->post('/login', function() use ($app) {
         $response['name'] = $user['name'];
         $response['uid'] = $user['uid'];
         // Este lo ponemos en ok
-        // $response['email'] = $user['email'];
+        $response['email'] = $user['email'];
 
         $response['createdAt'] = $user['created'];
         if (!isset($_SESSION)) {
@@ -32,7 +34,7 @@ $app->post('/login', function() use ($app) {
         }
         $_SESSION['uid'] = $user['uid'];
         // Este lo ponemos en ok
-        // $_SESSION['email'] = $email;
+        $_SESSION['email'] = $user['email'];
         
         $_SESSION['name'] = $user['name'];
         } else {
@@ -69,7 +71,7 @@ $app->post('/signUp', function() use ($app) {
             }
             $_SESSION['uid'] = $response["uid"];
             $_SESSION['name'] = $name;
-            $_SESSION['email'] = $email;
+            // $_SESSION['email'] = $email;
             echoResponse(200, $response);
         } else {
             $response["status"] = "error";

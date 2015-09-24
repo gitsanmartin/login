@@ -46,7 +46,8 @@ app.run(function ($rootScope, $location, Data){
 				$rootScope.authenticated = true;
 				$rootScope.uid = results.uid;
 				$rootScope.name = results.name;
-				// $rootScope.email = results.email;
+				$rootScope.email = results.email;
+				//datos para mostrar por scope a las vista
 			} else {
 				var nextUrl = next.$$route.originalPath;
 				if (nextUrl == '/signup' || nextUrl == '/login') {

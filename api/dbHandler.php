@@ -52,9 +52,10 @@ public function getSession(){
     $sess = array();
     if(isset($_SESSION['uid']))
     {
+        //datos que va a llevar la ssesion
         $sess["uid"] = $_SESSION['uid'];
         $sess["name"] = $_SESSION['name'];
-        // $sess["email"] = $_SESSION['email'];
+        $sess["email"] = $_SESSION['email'];
         // $sess["city"] = $_SESSION['city'];
     }
     else
