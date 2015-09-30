@@ -5,6 +5,7 @@ app.controller('altoControlador', function ($scope, $rootScope, $routeParams, $l
 	//initially set those objects to null to avoid undefined error
 	$scope.login = {};
 	$scope.signup = {};
+	
 	$scope.doLogin = function (customer) {
 		Data.post ('login', {
 			customer: customer

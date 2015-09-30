@@ -56,6 +56,12 @@ app.run(function ($rootScope, $location, Data){
 					$location.path("/login");
 				}
 			}
+			if ($rootScope.authenticated){
+				$location.path("/dashboard");
+				console.log("true, session abierta...  Solucionado");
+			} else {
+				console.log("false, no tiene session abierta");
+			}
 		});
 	})
 });
